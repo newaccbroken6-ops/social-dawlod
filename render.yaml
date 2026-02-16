@@ -1,0 +1,19 @@
+services:
+  - type: worker
+    name: discord-downloader-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: MAX_FILE_SIZE_MB
+        value: 25
+      - key: MAX_DOWNLOADS_PER_DAY
+        value: 50
+      - key: AUTO_CLEANUP_HOURS
+        value: 1
+      - key: SERVER_INVITE
+        value: https://discord.gg/yhDb5Hnt
+      - key: BOT_USERNAME
+        value: Social Media Downloader
